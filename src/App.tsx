@@ -9,14 +9,14 @@ function App() {
         {message: 'message3'},
     ])
 
-    const setMessagesCallback = (newMessage: string) => {
+    const addMessage = (newMessage: string) => {
         setMessages([...messages, {message: newMessage}])
     }
 
     return (
         <div className="App">
             <div>
-                <FullInput setMessagesCallback={setMessagesCallback}/>
+                <FullInput addMessage={addMessage}/>
             </div>
             {messages.map((el, index) => {
                 return (

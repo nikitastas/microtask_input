@@ -1,23 +1,24 @@
 import React, {ChangeEvent, useState} from 'react';
 
 type Props = {
-    setMessagesCallback: (message: string) => void
+    addMessage: (message: string) => void
 }
 
-export const FullInput = ({setMessagesCallback}: Props) => {
+export const FullInput = ({addMessage}: Props) => {
     let [state, setTitle] = useState('');
-    const onChangeInputHandler = (value: string) => {
-        setTitle(value);
+
+    const onChangeInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.currentTarget.value);
     }
 
     const onClickButtonHandler = () => {
-        setMessagesCallback(state)
+        addMessage(state)
         setTitle('')
     }
 
     return (
         <div>
-            <input value={state} onChange={(e: ChangeEvent<HTMLInputElement>) => onChangeInputHandler(e.currentTarget.value)}/>
+            <input value={state} onChange={onChangeInputHandler}/>
             <button onClick={onClickButtonHandler}>+</button>
         </div>
     );
