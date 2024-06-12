@@ -5,14 +5,14 @@ type Props = {
 }
 
 export const FullInput = ({setMessagesCallback}: Props) => {
-    let [state, setState] = useState('');
+    let [state, setTitle] = useState('');
     const onChangeInputHandler = (value: string) => {
-        setState(value);
+        setTitle(value);
     }
 
     const onClickButtonHandler = () => {
         setMessagesCallback(state)
-        setState('')
+        setTitle('')
     }
 
     return (
