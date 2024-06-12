@@ -10,17 +10,19 @@ function App() {
         {message: 'message2'},
         {message: 'message3'},
     ])
+    let [newMessage, setNewMessage] = useState('');
 
-    const addMessage = (newMessage: string) => {
+    const addMessage = () => {
         setMessages([{message: newMessage}, ...messages])
+        setNewMessage('')
     }
 
     return (
         <div className="App">
             <div>
                 {/*<FullInput addMessage={addMessage}/>*/}
-                <Input/>
-                <Button/>
+                <Input value={newMessage} setNewMessage={setNewMessage}/>
+                <Button name={'+'} onClickButtonHandler={addMessage} />
             </div>
             {messages.map((el, index) => {
                 return (

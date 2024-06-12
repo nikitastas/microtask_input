@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 
-export const Input = () => {
+type Props = {
+    value: string
+    setNewMessage: (newMessage: string) => void
+}
+
+
+
+export const Input = ({value, setNewMessage}: Props) => {
+    const onChangeInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setNewMessage(e.currentTarget.value)
+    }
     return (
         <div>
-            <input/>
+            <input value={value} onChange={onChangeInputHandler}/>
         </div>
     );
 };
