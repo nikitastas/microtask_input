@@ -10,7 +10,7 @@ function App() {
     ])
 
     const addMessage = (newMessage: string) => {
-        setMessages([...messages, {message: newMessage}])
+        setMessages([{message: newMessage}, ...messages])
     }
 
     return (
