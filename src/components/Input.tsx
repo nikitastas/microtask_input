@@ -8,9 +8,11 @@ type Props = {
 
 
 export const Input = ({value, setNewMessage}: Props) => {
+
     const onChangeInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setNewMessage(e.currentTarget.value)
     }
+
     return (
         <div>
             <input value={value} onChange={onChangeInputHandler}/>
